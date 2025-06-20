@@ -17,6 +17,8 @@ docker run --rm -v $PWD:/app -w /app python:3.11-slim python test.py
 
 python test.py 则是执行python命令，由于之前已经将宿主机路径映射到/app路径，所以test.py 实际上是 /app/test.py 
 
+脚本需要交互的情况加上 -it 参数 docker run -it --rm -v $PWD:/app -w /app python:3.11-slim python test.py
+
 # dockerfile
 如果需要安装第三方应用，上述直接使用的方式就不可行了，否则每次都要安装第三方库，在官方镜像基础上构建新的容器即可
 ```
