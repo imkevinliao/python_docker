@@ -7,7 +7,16 @@
 
 docker 会自动拉取python官方制作的镜像 python:3.11-slim
 
-docker run -v $PWD:/app -w /app python:3.11-slim python test.py
+docker run --rm -v $PWD:/app -w /app python:3.11-slim python test.py
+
+--rm 执行完命令后，容器会被 Docker 自动删除
+
+-v $PWD:/app 将当前路径映射到容器 /app
+
+-w /app 设置容器工作路径 /app
+
+python test.py 则是执行python命令，由于之前已经将宿主机路径映射到/app路径，所以test.py 实际上是 /app/test.py 
+
 # dockerfile
 ```
 FROM python:3.11-slim
